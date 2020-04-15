@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bwsk.mapper.UserMapper">
+ 
+   <!--添加用户  -->
+   <insert id="insertUser" parameterType="com.bwsk.entity.User" useGeneratedKeys="true" keyProperty="uid">
+   		insert into user 
+   		<trim prefix="(" suffix=")" suffixOverrides=",">
+	   		<if test="username != null and username!=''">
+				username,
+			</if>
+			<if test="utelphone != null and utelphone !=''">
+				utelphone,
+			</if>
+			<if test="uposition != null and uposition !=''">
+				uposition,
+			</if>
+			<if test="upic != null and upic!=''">
+				upic,
+			</if>
+			<if test="wxid != null and wxid!=''">
+				wxid,
+			</if>
+			<if test="creattime != null and creattime!=''">
+				creattime,
+			</if>
+			
+   		</trim>
+   		<trim prefix="values (" suffix=")" suffixOverrides=",">
+	   		<if test="username != null and username!=''">
+				#{username},
+			</if>
+			<if test="utelphone != null and utelphone !=''">
+				#{utelphone},
+			</if>
+			<if test="uposition != null and uposition !=''">
+				#{uposition},
+			</if>
+			<if test="upic != null and upic!=''">
+				#{upic},
+			</if>
+			<if test="wxid != null and wxid!=''">
+				#{wxid},
+			</if>
+			<if test="creattime != null and creattime!=''">
+				#{creattime},
+			</if>
+   		
+   		</trim>
+   </insert>
+   
+   <!-- 修改用户 -->
+   <update id="updateUser"  parameterType="com.bwsk.entity.User">
+   		update user 
+   		<set>
+   			<if test="username != null and username!=''">
+				username=#{username},
+			</if>
+			<if test="utelphone != null and utelphone !=''">
+				utelphone=#{utelphone},
+			</if>
+			<if test="uposition != null and uposition !=''">
+				uposition=#{uposition},
+			</if>
+			<if test="upic != null and upic!=''">
+				upic=#{upic},
+			</if>
+			<if test="wxid != null and wxid!=''">
+				wxid=#{wxid},
+			</if>
+			<if test="creattime != null and creattime!=''">
+				creattime=#{creattime},
+			</if>
+   			
+   		</set>
+   			 where uid=#{uid}
+   </update>
+   
+   <!-- 通过微信ID或者用户ID查询关联的信息 -->
+   <select id="queryUserByWxIdOrUid" resultType="com.bwsk.entity.User">
+   		select uid,username,utelphone,uposition,upic,wxid,creattime from user
+   			<where>
+	       		 <if test="uid != null and uid != ''">
+		          and  uid = #{uid}
+		       	 </if>
+		       	 <if test="wxid != null and wxid != ''">
+		          and  wxid = #{wxid}
+		       	 </if>
+   			 </where>  
+   			 order by creattime desc
+   </select> 
+   
+   <!-- 通过项目ID以及用户ID查询用户 -->
+   <select id="queryUserByUidAndPid" resultType="com.bwsk.entity.User">
+		   SELECT
+			b.*,
+			case when b.uid=#{uid} then 1 else 0 end currentuser
+			FROM
+				projectuser a
+			LEFT JOIN user b ON a.uid = b.uid
+			WHERE
+				a.pid = #{pid}
+   			ORDER BY b.creattime DESC
+   </select>
+ 
+</mapper>
