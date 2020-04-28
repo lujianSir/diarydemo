@@ -21,10 +21,13 @@ public class WebMvcConfig implements WebMvcConfigurer {
 		String newrootPath = System.getProperty("user.dir") + "/upload";
 		newrootPath = newrootPath.replaceAll("\\\\", "/");
 		System.out.println("file:/" + newrootPath + "/video/");
-		//registry.addResourceHandler("/image/video/**").addResourceLocations("file:/" + newrootPath + "/video/");
-		//registry.addResourceHandler("/image/picture/**").addResourceLocations("file:/" + newrootPath + "/picture/");
-		 registry.addResourceHandler("/image/picture/**").addResourceLocations("file:/www/javaweb/diary/upload/picture/");//linux
-		 registry.addResourceHandler("/image/video/**").addResourceLocations("file:/www/javaweb/diary/upload/video/");//linux
+		// registry.addResourceHandler("/image/video/**").addResourceLocations("file:/"
+		// + newrootPath + "/video/");
+		// registry.addResourceHandler("/image/picture/**").addResourceLocations("file:/"
+		// + newrootPath + "/picture/");
+		registry.addResourceHandler("/image/picture/**")
+				.addResourceLocations("file:/mnt/javaweb/diary/upload/picture/");// linux
+		registry.addResourceHandler("/image/video/**").addResourceLocations("file:/mnt/javaweb/diary/upload/video/");// linux
 		WebMvcConfigurer.super.addResourceHandlers(registry);
 	}
 

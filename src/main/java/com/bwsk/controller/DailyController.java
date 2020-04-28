@@ -269,31 +269,35 @@ public class DailyController {
 
 		List<Map<String, Object>> list2 = new ArrayList<Map<String, Object>>();
 		String dvoideo = daily.getDvoideo();
-		JSONArray jsonArray = JSONArray.parseArray(new String(dvoideo));
-		for (int n = 0; n < jsonArray.size(); n++) {
-			Map<String, Object> m = new HashMap<String, Object>();
-			JSONObject o = (JSONObject) jsonArray.get(n);
-			Map<String, Object> map = o;
-			for (Entry<String, Object> entry : map.entrySet()) {
-				m.put(entry.getKey(), entry.getValue());
+		if (dvoideo != null && !dvoideo.equals("")) {
+			JSONArray jsonArray = JSONArray.parseArray(new String(dvoideo));
+			for (int n = 0; n < jsonArray.size(); n++) {
+				Map<String, Object> m = new HashMap<String, Object>();
+				JSONObject o = (JSONObject) jsonArray.get(n);
+				Map<String, Object> map = o;
+				for (Entry<String, Object> entry : map.entrySet()) {
+					m.put(entry.getKey(), entry.getValue());
+				}
+				list2.add(m);
 			}
-			list2.add(m);
+			daily.setDvoideos(list2);
 		}
-		daily.setDvoideos(list2);
 
 		List<Map<String, Object>> list3 = new ArrayList<Map<String, Object>>();
 		String equipments = daily.getEquipments();
-		JSONArray jsonArrayequipment = JSONArray.parseArray(new String(equipments));
-		for (int p = 0; p < jsonArrayequipment.size(); p++) {
-			Map<String, Object> m = new HashMap<String, Object>();
-			JSONObject o = (JSONObject) jsonArrayequipment.get(p);
-			Map<String, Object> map = o;
-			for (Entry<String, Object> entry : map.entrySet()) {
-				m.put(entry.getKey(), entry.getValue());
+		if (equipments != null && !equipments.equals("")) {
+			JSONArray jsonArrayequipment = JSONArray.parseArray(new String(equipments));
+			for (int p = 0; p < jsonArrayequipment.size(); p++) {
+				Map<String, Object> m = new HashMap<String, Object>();
+				JSONObject o = (JSONObject) jsonArrayequipment.get(p);
+				Map<String, Object> map = o;
+				for (Entry<String, Object> entry : map.entrySet()) {
+					m.put(entry.getKey(), entry.getValue());
+				}
+				list3.add(m);
 			}
-			list3.add(m);
+			daily.setListequipments(list3);
 		}
-		daily.setListequipments(list3);
 
 		return daily;
 	}

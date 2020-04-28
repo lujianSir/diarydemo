@@ -3,13 +3,13 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/diary?useUnicode=true&characterEncoding=utf8
-    #url: jdbc:mysql://134.175.21.43:3306/diary?useUnicode=true&characterEncoding=utf8
+    #url: jdbc:mysql://localhost:3306/diary?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://134.175.21.43:3306/diary?useUnicode=true&characterEncoding=utf8
     driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    password: root
-    #username: diary
-    #password: diary
+    #username: root
+    #password: root
+    username: diary
+    password: diary
   thymeleaf:    prefix: classpath:/templates/ # 访问template下的html文件需要配置模板，映射    cache: false # 开发时关闭缓存,不然没法看到实时页面
   servlet: #SpringBoot默认上传文件大小不能超过1MB    multipart:      max-file-size: 30Mb      max-request-size: 30Mb
     
