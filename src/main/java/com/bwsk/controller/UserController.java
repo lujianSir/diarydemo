@@ -60,18 +60,16 @@ public class UserController {
 	@RequestMapping("/queryUserByWxIdOrUid")
 	public Result<?> queryUserByWxIdOrUid(User user) {
 		User u = userService.queryUserByWxIdOrUid(user);
-		u.setUsername(user.getUsername());
-		u.setUpic(user.getUpic());
-//		if (u == null) {
-//			userService.insertOrUpdateUser(user);// 不存在则添加
-//			u = userService.queryUserByWxIdOrUid(user);
-//		}
-		userService.insertOrUpdateUser(u);// 不存在则添加
-		if (u != null) {
-			return Result.success(u);
-		} else {
-			return Result.error(500, "服务端错误");
+		if (u == null) {
+			u = new User();
+			System.out.println(user.getUsername());
+			u.setUsername(user.getUsername());
+			u.setUpic(user.getUpic());
+			u.setWxid(user.getWxid());
+			userService.insertOrUpdateUser(u);// 不存在则添加
 		}
+		return Result.success(u);
+
 	}
 
 	/**
