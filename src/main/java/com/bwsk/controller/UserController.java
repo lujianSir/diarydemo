@@ -233,7 +233,7 @@ public class UserController {
 		JSONObject json = JSONObject.fromObject(sr);
 		// 用户的唯一标识（openid）
 		String openid = (String) json.get("openid");
-		if (openid != null && openid.equals("")) {
+		if (openid != null && !openid.equals("")) {
 			user.setWxid(openid);
 			User u = userService.queryUserByWxIdOrUid(user);
 			if (u == null) {
