@@ -201,4 +201,54 @@ public class UserController {
 		return Result.success(row);
 	}
 
+	/**
+	 * 小程序授权绑定用户信息
+	 * 
+	 * @param encryptedData
+	 * @param iv
+	 * @param code
+	 * @return
+	 */
+	@RequestMapping(value = "getOpenId", method = RequestMethod.GET)
+	public Result<?> getOpenId(String code, User user) {
+		// 登录凭证不能为空
+		if (code == null || code.length() == 0) {
+			return Result.error(500, "code 不能为空");
+		}
+
+		// 小程序唯一标识 (在微信小程序管理后台获取)
+		String wxspAppid = "wx05797fdcc1a18a71";
+		// 小程序的 app secret (在微信小程序管理后台获取)
+		String wxspSecret = "6de53382f8d8ac8c67dcc179a59123a3";
+		// 授权（必填）
+		String grant_type = "authorization_code";
+
+		//////////////// 1、向微信服务器 使用登录凭证 code 获取 session_key 和 openid ////////////////
+		// 请求参数
+		String params = "appid=" + wxspAppid + "&secret=" + wxspSecret + "&js_code=" + code + "&grant_type="
+				+ grant_type;
+		// 发送请求
+		String sr = HttpRequest.sendGet("https://api.weixin.qq.com/sns/jscode2session", params);
+		// 解析相应内容（转换成json对象）
+		JSONObject json = JSONObject.fromObject(sr);
+		// 用户的唯一标识（openid）
+		String openid = (String) json.get("openid");
+		if (openid != null && openid.equals("")) {
+			user.setWxid(openid);
+			User u = userService.queryUserByWxIdOrUid(user);
+			if (u == null) {
+				u = new User();
+				System.out.println(user.getUsername());
+				u.setUsername(user.getUsername());
+				u.setUpic(user.getUpic());
+				u.setWxid(user.getWxid());
+				userService.insertOrUpdateUser(u);// 不存在则添加
+			}
+			return Result.success(u);
+		} else {
+			return Result.error(501, "获取数据有误");
+		}
+
+	}
+
 }
