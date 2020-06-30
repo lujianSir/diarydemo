@@ -62,12 +62,19 @@ public class UserController {
 		User u = userService.queryUserByWxIdOrUid(user);
 		if (u == null) {
 			u = new User();
-			System.out.println(user.getUsername());
 			u.setUsername(user.getUsername());
 			u.setUpic(user.getUpic());
 			u.setWxid(user.getWxid());
-			userService.insertOrUpdateUser(u);// 不存在则添加
+		} else {
+			if (u.getUsername() == null || u.getUsername().equals("")) {
+				u.setUsername(user.getUsername());
+			}
+			if (u.getUpic() == null || u.getUsername().equals("")) {
+				u.setUpic(user.getUpic());
+			}
+
 		}
+		userService.insertOrUpdateUser(u);// 不存在则添加
 		return Result.success(u);
 
 	}
@@ -238,12 +245,18 @@ public class UserController {
 			User u = userService.queryUserByWxIdOrUid(user);
 			if (u == null) {
 				u = new User();
-				System.out.println(user.getUsername());
 				u.setUsername(user.getUsername());
 				u.setUpic(user.getUpic());
 				u.setWxid(user.getWxid());
-				userService.insertOrUpdateUser(u);// 不存在则添加
+			} else {
+				if (u.getUsername() == null || u.getUsername().equals("")) {
+					u.setUsername(user.getUsername());
+				}
+				if (u.getUpic() == null || u.getUsername().equals("")) {
+					u.setUpic(user.getUpic());
+				}
 			}
+			userService.insertOrUpdateUser(u);// 不存在则添加
 			return Result.success(u);
 		} else {
 			return Result.error(501, "获取数据有误");
