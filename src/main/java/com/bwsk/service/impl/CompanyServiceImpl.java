@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.bwsk.entity.Company;
 import com.bwsk.mapper.CompanyMapper;
 import com.bwsk.service.CompanyService;
+import com.bwsk.util.Result;
 import com.bwsk.util.Utils;
 
 @Service
@@ -23,17 +24,36 @@ public class CompanyServiceImpl implements CompanyService {
 	}
 
 	@Override
-	public int insertOrUpdateCompany(Company company) {
+	public Result<?> insertOrUpdateCompany(Company company) {
 		// TODO Auto-generated method stub
-		int row = 0;
+
 		if (company.getCid() > 0) {// 存在 修改
-			row = companyMapper.updateCompany(company);
-		} else {// 不存在 添加
-			String currentTime = Utils.getCurrent();
-			company.setCreattime(currentTime);
-			row = companyMapper.insertCompany(company);
+			Company cpany = companyMapper.queryCompanyByCid(company.getCid());
+			if (company.getCname().equals(cpany.getCname())) {
+				companyMapper.updateCompany(company);
+				return Result.success("修改成功");
+			} else {
+				Company c = companyMapper.queryCompanyByCname(company.getCname());// 是否重复
+				if (c != null) {
+					return Result.error(500, "名称重复");
+				} else {
+					companyMapper.updateCompany(company);
+					return Result.success("修改成功");
+				}
+			}
+
+		} else {
+			Company cpany = companyMapper.queryCompanyByCname(company.getCname());
+			if (cpany != null) {
+				return Result.error(500, "名称重复");
+			} else {
+				String currentTime = Utils.getCurrent();
+				company.setCreattime(currentTime);
+				companyMapper.insertCompany(company);
+				return Result.success("添加成功");
+			}
 		}
-		return row;
+
 	}
 
 	@Override

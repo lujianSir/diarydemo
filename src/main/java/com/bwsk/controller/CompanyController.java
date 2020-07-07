@@ -21,7 +21,6 @@ import com.bwsk.util.Result;
 @RestController
 @RequestMapping("/company")
 public class CompanyController {
-
 	@Autowired
 	private CompanyService companyService;
 
@@ -30,11 +29,11 @@ public class CompanyController {
 
 	/**
 	 * 通过公司ID或者用户ID查询公司的信息
-	 * 
-	 * @param user
+	 *
+	 * @param company
 	 * @return
 	 */
-	@RequestMapping("/queryCompanyByUidOrCid")
+	@RequestMapping(value = "/queryCompanyByUidOrCid")
 	public Result<?> queryCompanyByUidOrCid(Company company) {
 		List<Company> list = companyService.queryCompanyByUidOrCid(company);
 		return Result.success(list);
@@ -42,31 +41,31 @@ public class CompanyController {
 
 	/**
 	 * 添加或者修改公司信息
-	 * 
+	 *
 	 * @param company
 	 * @return
 	 */
-	@RequestMapping("/insertOrUpdateCompany")
+	@RequestMapping(value = "/insertOrUpdateCompany")
 	public Result<?> insertOrUpdateCompany(Company company) {
-		int row = companyService.insertOrUpdateCompany(company);
-		if (row > 0) {
-			return Result.success("操作成功");
-		} else {
-			return Result.error(500, "服务端错误");
-		}
+		return companyService.insertOrUpdateCompany(company);
 	}
 
-	@RequestMapping("/deleteCompanyByCid")
+	/**
+	 * 根据ID删除公司信息
+	 *
+	 * @param cid
+	 * @return
+	 */
+	@RequestMapping(value = "/deleteCompanyByCid")
 	public Result<?> deleteCompanyByCid(int cid) {
-		int row = 0;
 		Project project = new Project();
 		project.setCid(cid);
 		List<Project> list = projectService.queryProject(project);
 		if (list.size() > 0) {
-			row = 2;
+			return Result.error(500, "有绑定数据");
 		} else {
-			row = companyService.deleteCompanyByCid(cid);
+			companyService.deleteCompanyByCid(project.getCid());
+			return Result.success("删除成功");
 		}
-		return Result.success(row);
 	}
 }

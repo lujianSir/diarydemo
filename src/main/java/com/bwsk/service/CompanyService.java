@@ -3,6 +3,7 @@ package com.bwsk.service;
 import java.util.List;
 
 import com.bwsk.entity.Company;
+import com.bwsk.util.Result;
 
 public interface CompanyService {
 
@@ -10,7 +11,7 @@ public interface CompanyService {
 	public List<Company> queryCompanyByUidOrCid(Company company);
 
 	// 添加或者修改公司信息
-	public int insertOrUpdateCompany(Company company);
+	Result<?> insertOrUpdateCompany(Company company);
 
 	// 通过企业的ID删除企业
 	public int deleteCompanyByCid(int cid);
