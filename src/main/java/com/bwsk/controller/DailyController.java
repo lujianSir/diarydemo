@@ -66,7 +66,7 @@ public class DailyController {
 //		daily.setPid(11);
 		int row = dailyService.insertOrUpdateDaily(daily);
 		if (row > 0) {
-			return Result.success("操作成功");
+			return Result.success(row);
 		} else {
 			return Result.error(500, "服务端错误");
 		}

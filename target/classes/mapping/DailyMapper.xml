@@ -114,7 +114,7 @@
  
  
    <!--添加日报  -->
-   <insert id="insertDaily" parameterType="com.bwsk.entity.Daily">
+   <insert id="insertDaily" parameterType="com.bwsk.entity.Daily"   useGeneratedKeys="true" keyProperty="did">
    		insert into daily 
    		<trim prefix="(" suffix=")" suffixOverrides=",">
 	   		<if test="uid != null and uid!=''">

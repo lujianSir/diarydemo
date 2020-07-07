@@ -33,7 +33,8 @@ public class DailyServiceImpl implements DailyService {
 			String currentTime = Utils.getCurrent();
 			daily.setCreattime(currentTime);
 			daily.setCreatMouth(Utils.getCurrentMouth());
-			row = dailyMapper.insertDaily(daily);
+			dailyMapper.insertDaily(daily);
+			row = daily.getDid();
 		}
 		return row;
 	}

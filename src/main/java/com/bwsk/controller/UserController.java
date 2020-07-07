@@ -80,6 +80,17 @@ public class UserController {
 	}
 
 	/**
+	 * 
+	 * @param user
+	 * @return
+	 */
+	@RequestMapping("/queryUserByUid")
+	public Result<?> queryUserByUid(User user) {
+		User u = userService.queryUserByWxIdOrUid(user);
+		return Result.success(u);
+	}
+
+	/**
 	 * 通过项目ID以及用户ID查询用户
 	 * 
 	 * @param uid
