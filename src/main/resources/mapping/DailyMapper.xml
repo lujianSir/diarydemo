@@ -117,70 +117,70 @@
    <insert id="insertDaily" parameterType="com.bwsk.entity.Daily"   useGeneratedKeys="true" keyProperty="did">
    		insert into daily 
    		<trim prefix="(" suffix=")" suffixOverrides=",">
-	   		<if test="uid != null and uid!=''">
+	   		<if test="uid != null ">
 				uid,
 			</if>
-			<if test="username != null and username !=''">
+			<if test="username != null ">
 				username,
 			</if>
-			<if test="uposition != null and uposition !=''">
+			<if test="uposition != null">
 				uposition,
 			</if>
-			<if test="utelphone != null and utelphone!=''">
+			<if test="utelphone != null">
 				utelphone,
 			</if>
-			<if test="weather != null and weather!=''">
+			<if test="weather != null ">
 				weather,
 			</if>
-			<if test="attendancetody != null and attendancetody!=''">
+			<if test="attendancetody != null ">
 				attendancetody,
 			</if>
-			<if test="attendanceoneself != null and attendanceoneself!=''">
+			<if test="attendanceoneself != null">
 				attendanceoneself,
 			</if>
-			<if test="effectivework != null and effectivework!=''">
+			<if test="effectivework != null">
 				effectivework,
 			</if>
-			<if test="satisfactiondegree != null and satisfactiondegree!=''">
+			<if test="satisfactiondegree != null">
 				satisfactiondegree,
 			</if>
-			<if test="equipments != null and equipments!=''">
+			<if test="equipments != null">
 				equipments,
 			</if>
-			<if test="workcomment != null and workcomment!=''">
+			<if test="workcomment != null">
 				workcomment,
 			</if>
-			<if test="abnorname != null and abnorname!=''">
+			<if test="abnorname != null">
 				abnorname,
 			</if>
-			<if test="dunning != null and dunning!=''">
+			<if test="dunning != null">
 				dunning,
 			</if>
-			<if test="dunningpic != null and dunningpic!=''">
+			<if test="dunningpic != null ">
 				dunningpic,
 			</if>
-			<if test="amountody != null and amountody!=''">
+			<if test="amountody != null">
 				amountody,
 			</if>
-			<if test="invoicetody != null and invoicetody!=''">
+			<if test="invoicetody != null ">
 				invoicetody,
 			</if>
-			<if test="dpic != null and dpic!=''">
+			<if test="dpic != null">
 				dpic,
 			</if>
-			<if test="dvoideo != null and dvoideo!=''">
+			<if test="dvoideo != null">
 				dvoideo,
 			</if>
-			<if test="dtime != null and dtime!=''">
+			<if test="dtime != null">
 				dtime,
 			</if>
-			<if test="pid != null and pid!=''">
+			<if test="pid != null ">
 				pid,
 			</if>
-			<if test="creattime != null and creattime!=''">
+			<if test="creattime != null">
 				creattime,
 			</if>
-			<if test="creatMouth != null and creatMouth!=''">
+			<if test="creatMouth != null">
 				creatMouth,
 			</if>
    		</trim>
@@ -188,67 +188,67 @@
 			<if test="uid != null and uid!=''">
 				#{uid},
 			</if>
-			<if test="username != null and username !=''">
+			<if test="username != null ">
 				#{username},
 			</if>
-			<if test="uposition != null and uposition !=''">
+			<if test="uposition != null">
 				#{uposition},
 			</if>
-			<if test="utelphone != null and utelphone!=''">
+			<if test="utelphone != null ">
 				#{utelphone},
 			</if>
-			<if test="weather != null and weather!=''">
+			<if test="weather != null">
 				#{weather},
 			</if>
-			<if test="attendancetody != null and attendancetody!=''">
+			<if test="attendancetody != null">
 				#{attendancetody},
 			</if>
-			<if test="attendanceoneself != null and attendanceoneself!=''">
+			<if test="attendanceoneself != null">
 				#{attendanceoneself},
 			</if>
-			<if test="effectivework != null and effectivework!=''">
+			<if test="effectivework != null">
 				#{effectivework},
 			</if>
-			<if test="satisfactiondegree != null and satisfactiondegree!=''">
+			<if test="satisfactiondegree != null">
 				#{satisfactiondegree},
 			</if>
-			<if test="equipments != null and equipments!=''">
+			<if test="equipments != null">
 				#{equipments},
 			</if>
-			<if test="workcomment != null and workcomment!=''">
+			<if test="workcomment != null">
 				#{workcomment},
 			</if>
-			<if test="abnorname != null and abnorname!=''">
+			<if test="abnorname != null ">
 				#{abnorname},
 			</if>
-			<if test="dunning != null and dunning!=''">
+			<if test="dunning != null">
 				#{dunning},
 			</if>
-			<if test="dunningpic != null and dunningpic!=''">
+			<if test="dunningpic != null">
 				#{dunningpic},
 			</if>
-			<if test="amountody != null and amountody!=''">
+			<if test="amountody != null">
 				#{amountody},
 			</if>
-			<if test="invoicetody != null and invoicetody!=''">
+			<if test="invoicetody != null">
 				#{invoicetody},
 			</if>
-			<if test="dpic != null and dpic!=''">
+			<if test="dpic != null">
 				#{dpic},
 			</if>
-			<if test="dvoideo != null and dvoideo!=''">
+			<if test="dvoideo != null">
 				#{dvoideo},
 			</if>
-			<if test="dtime != null and dtime!=''">
+			<if test="dtime != null ">
 				#{dtime},
 			</if>
-			<if test="pid != null and pid!=''">
+			<if test="pid != null ">
 				#{pid},
 			</if>
-			<if test="creattime != null and creattime!=''">
+			<if test="creattime != null">
 				#{creattime},
 			</if>
-			<if test="creatMouth != null and creatMouth!=''">
+			<if test="creatMouth != null">
 				#{creatMouth},
 			</if>
    		</trim>
@@ -258,70 +258,70 @@
    <update id="updateDaily"  parameterType="com.bwsk.entity.Daily">
    		update daily 
    		<set>
-			<if test="uid != null and uid!=''">
+			<if test="uid != null">
 				uid=#{uid},
 			</if>
-			<if test="username != null and username !=''">
+			<if test="username != null">
 				username=#{username},
 			</if>
-			<if test="uposition != null and uposition !=''">
+			<if test="uposition != null">
 				uposition=#{uposition},
 			</if>
-			<if test="utelphone != null and utelphone!=''">
+			<if test="utelphone != null">
 				utelphone=#{utelphone},
 			</if>
-			<if test="weather != null and weather!=''">
+			<if test="weather != null">
 				weather=#{weather},
 			</if>
-			<if test="attendancetody != null and attendancetody!=''">
+			<if test="attendancetody != null ">
 				attendancetody=#{attendancetody},
 			</if>
-			<if test="attendanceoneself != null and attendanceoneself!=''">
+			<if test="attendanceoneself != null">
 				attendanceoneself=#{attendanceoneself},
 			</if>
-			<if test="effectivework != null and effectivework!=''">
+			<if test="effectivework != null">
 				effectivework=#{effectivework},
 			</if>
-			<if test="satisfactiondegree != null and satisfactiondegree!=''">
+			<if test="satisfactiondegree != null">
 				satisfactiondegree=#{satisfactiondegree},
 			</if>
-			<if test="equipments != null and equipments!=''">
+			<if test="equipments != null">
 				equipments=#{equipments},
 			</if>
-			<if test="workcomment != null and workcomment!=''">
+			<if test="workcomment != null">
 				workcomment=#{workcomment},
 			</if>
-			<if test="abnorname != null and abnorname!=''">
+			<if test="abnorname != null">
 				abnorname=#{abnorname},
 			</if>
-			<if test="dunning != null and dunning!=''">
+			<if test="dunning != null">
 				dunning=#{dunning},
 			</if>
-			<if test="dunningpic != null and dunningpic!=''">
+			<if test="dunningpic != null">
 				dunningpic=#{dunningpic},
 			</if>
-			<if test="amountody != null and amountody!=''">
+			<if test="amountody != null">
 				amountody=#{amountody},
 			</if>
-			<if test="invoicetody != null and invoicetody!=''">
+			<if test="invoicetody != null">
 				invoicetody=#{invoicetody},
 			</if>
-			<if test="dpic != null and dpic!=''">
+			<if test="dpic != null">
 				dpic=#{dpic},
 			</if>
-			<if test="dvoideo != null and dvoideo!=''">
+			<if test="dvoideo != null">
 				dvoideo=#{dvoideo},
 			</if>
-			<if test="dtime != null and dtime!=''">
+			<if test="dtime != null">
 				dtime=#{dtime},
 			</if>
-			<if test="pid != null and pid!=''">
+			<if test="pid != null">
 				pid=#{pid},
 			</if>
-			<if test="creattime != null and creattime!=''">
+			<if test="creattime != null">
 				creattime=#{creattime},
 			</if>
-   			<if test="creatMouth != null and creatMouth!=''">
+   			<if test="creatMouth != null">
 				creatMouth=#{creatMouth},
 			</if>
    		</set>

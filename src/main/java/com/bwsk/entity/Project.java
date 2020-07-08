@@ -67,6 +67,16 @@ public class Project {
 
 	private List<UserInfo> userinfos;// 项目绑定的人
 
+	private int contractaqueryProjectmount;
+
+	public int getContractaqueryProjectmount() {
+		return contractaqueryProjectmount;
+	}
+
+	public void setContractaqueryProjectmount(int contractaqueryProjectmount) {
+		this.contractaqueryProjectmount = contractaqueryProjectmount;
+	}
+
 	public List<UserInfo> getUserinfos() {
 		return userinfos;
 	}

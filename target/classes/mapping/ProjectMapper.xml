@@ -42,121 +42,121 @@
     <insert id="insertProject" parameterType="com.bwsk.entity.Project" useGeneratedKeys="true" keyProperty="pid">
         insert into project
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="pname != null and pname!=''">
+            <if test="pname != null">
                 pname,
             </if>
-            <if test="pabbreviation != null and pabbreviation !=''">
+            <if test="pabbreviation != null">
                 pabbreviation,
             </if>
-            <if test="pnumber != null and pnumber !=''">
+            <if test="pnumber != null">
                 pnumber,
             </if>
-            <if test="paddress != null and paddress!=''">
+            <if test="paddress != null">
                 paddress,
             </if>
-            <if test="pstatus != null and pstatus!=''">
+            <if test="pstatus != null">
                 pstatus,
             </if>
-            <if test="cid != null and cid!=''">
+            <if test="cid != null">
                 cid,
             </if>
-            <if test="ptype != null and ptype!=''">
+            <if test="ptype != null">
                 ptype,
             </if>
-            <if test="contractamount != null and contractamount!=''">
+            <if test="contractamount != null or contractamount==0">
                 contractamount,
             </if>
-            <if test="acceptedamount != null and acceptedamount!=''">
+            <if test="acceptedamount != null or acceptedamount==0">
                 acceptedamount,
             </if>
-            <if test="acceptedinvoice != null and acceptedinvoice!=''">
+            <if test="acceptedinvoice != null or acceptedinvoice==0">
                 acceptedinvoice,
             </if>
-            <if test="totalartificial != null and totalartificial!=''">
+            <if test="totalartificial != null or totalartificial==0">
                 totalartificial,
             </if>
-            <if test="approachDay != null and approachDay!=''">
+            <if test="approachDay != null ">
                 approachDay,
             </if>
-            <if test="completeDay != null and completeDay!=''">
+            <if test="completeDay != null ">
                 completeDay,
             </if>
-            <if test="paycondition != null and paycondition!=''">
+            <if test="paycondition != null">
                 paycondition,
             </if>
-            <if test="fineremarks != null and fineremarks!=''">
+            <if test="fineremarks != null">
                 fineremarks,
             </if>
-            <if test="creattime != null and creattime!=''">
+            <if test="creattime != null">
                 creattime,
             </if>
-            <if test="uid != null and uid!=''">
+            <if test="uid != null">
                 uid,
             </if>
-            <if test="weixin != null and weixin!=''">
+            <if test="weixin != null">
                 weixin,
             </if>
-            <if test="materialuid != null and materialuid!=''">
+            <if test="materialuid != null">
                 materialuid,
             </if>
 
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="pname != null and pname!=''">
+            <if test="pname != null">
                 #{pname},
             </if>
-            <if test="pabbreviation != null and pabbreviation !=''">
+            <if test="pabbreviation != null">
                 #{pabbreviation},
             </if>
-            <if test="pnumber != null and pnumber !=''">
+            <if test="pnumber != null">
                 #{pnumber},
             </if>
-            <if test="paddress != null and paddress!=''">
+            <if test="paddress != null">
                 #{paddress},
             </if>
-            <if test="pstatus != null and pstatus!=''">
+            <if test="pstatus != null">
                 #{pstatus},
             </if>
-            <if test="cid != null and cid!=''">
+            <if test="cid != null">
                 #{cid},
             </if>
-            <if test="ptype != null and ptype!=''">
+            <if test="ptype != null ">
                 #{ptype},
             </if>
-            <if test="contractamount != null and contractamount!=''">
+            <if test="contractamount != null or contractamount==0">
                 #{contractamount},
             </if>
-            <if test="acceptedamount != null and acceptedamount!=''">
+            <if test="acceptedamount != null or acceptedamount==0">
                 #{acceptedamount},
             </if>
-            <if test="acceptedinvoice != null and acceptedinvoice!=''">
+            <if test="acceptedinvoice != null or acceptedinvoice==0">
                 #{acceptedinvoice},
             </if>
-            <if test="totalartificial != null and totalartificial!=''">
+            <if test="totalartificial != null or totalartificial==0">
                 #{totalartificial},
             </if>
-            <if test="approachDay != null and approachDay!=''">
+            <if test="approachDay != null ">
                 #{approachDay},
             </if>
-            <if test="completeDay != null and completeDay!=''">
+            <if test="completeDay != null">
                 #{completeDay},
             </if>
-            <if test="paycondition != null and paycondition!=''">
+            <if test="paycondition != null">
                 #{paycondition},
             </if>
-            <if test="fineremarks != null and fineremarks!=''">
+            <if test="fineremarks != null">
                 #{fineremarks},
             </if>
-            <if test="creattime != null and creattime!=''">
+            <if test="creattime != null">
                 #{creattime},
             </if>
-            <if test="uid != null and uid!=''">
+            <if test="uid != null">
                 #{uid},
             </if>
-            <if test="weixin != null and weixin!=''">
+            <if test="weixin != null">
                 #{weixin},
             </if>
-            <if test="materialuid != null and materialuid!=''">
+            <if test="materialuid != null">
                 #{materialuid},
             </if>
         </trim>
@@ -179,37 +179,37 @@
     <update id="updateProject" parameterType="com.bwsk.entity.Project">
         update project
         <set>
-            <if test="pname != null and pname!=''">
+            <if test="pname != null">
                 pname=#{pname},
             </if>
-            <if test="pabbreviation != null and pabbreviation !=''">
+            <if test="pabbreviation != null">
                 pabbreviation=#{pabbreviation},
             </if>
-            <if test="pnumber != null and pnumber !=''">
+            <if test="pnumber != null">
                 pnumber=#{pnumber},
             </if>
-            <if test="paddress != null and paddress!=''">
+            <if test="paddress != null">
                 paddress=#{paddress},
             </if>
             <if test="pstatus != null ">
                 pstatus=#{pstatus},
             </if>
-            <if test="cid != null and cid!=''">
+            <if test="cid != null">
                 cid=#{cid},
             </if>
-            <if test="ptype != null and ptype!=''">
+            <if test="ptype != null">
                 ptype=#{ptype},
             </if>
-            <if test="contractamount != null ">
+            <if test="contractamount != null  or contractamount==0 ">
                 contractamount=#{contractamount},
             </if>
-            <if test="acceptedamount != null">
+            <if test="acceptedamount != null  or acceptedamount==0">
                 acceptedamount=#{acceptedamount},
             </if>
-            <if test="acceptedinvoice != null">
+            <if test="acceptedinvoice != null or acceptedinvoice==0">
                 acceptedinvoice=#{acceptedinvoice},
             </if>
-            <if test="totalartificial != null">
+            <if test="totalartificial != null or totalartificial==0">
                 totalartificial=#{totalartificial},
             </if>
             <if test="approachDay != null ">
@@ -224,16 +224,16 @@
             <if test="fineremarks != null ">
                 fineremarks=#{fineremarks},
             </if>
-            <if test="creattime != null and creattime!=''">
+            <if test="creattime != null">
                 creattime=#{creattime},
             </if>
-            <if test="uid != null and uid!=''">
+            <if test="uid != null">
                 uid=#{uid},
             </if>
-            <if test="weixin != null and weixin!=''">
+            <if test="weixin != null">
                 weixin=#{weixin},
             </if>
-            <if test="materialuid != null and materialuid!=''">
+            <if test="materialuid != null">
                 materialuid=#{materialuid},
             </if>
         </set>
