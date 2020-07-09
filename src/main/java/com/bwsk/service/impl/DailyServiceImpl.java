@@ -25,7 +25,6 @@ public class DailyServiceImpl implements DailyService {
 		// TODO Auto-generated method stub
 		int row = 0;
 		if (daily.getDid() > 0) {// 存在 修改
-			daily.setDunning("");
 			row = dailyMapper.updateDaily(daily);
 		} else {// 不存在 添加
 			if (daily.getDtime() != null && !daily.getDtime().equals("")) {
@@ -34,7 +33,6 @@ public class DailyServiceImpl implements DailyService {
 			String currentTime = Utils.getCurrent();
 			daily.setCreattime(currentTime);
 			daily.setCreatMouth(Utils.getCurrentMouth());
-			daily.setDunning("");
 			dailyMapper.insertDaily(daily);
 			row = daily.getDid();
 		}
