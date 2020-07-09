@@ -47,6 +47,7 @@
         <result property="equipments" column="equipments" />
         <result property="workcomment" column="workcomment" />
         <result property="abnorname" column="abnorname" />
+        <result property="dunning" column="dunning" />
         <result property="dunningpic" column="dunningpic" />
         <result property="amountody" column="amountody" />
         <result property="invoicetody" column="invoicetody" />
@@ -80,6 +81,7 @@
 	        <result property="equipments" column="equipments" />
 	        <result property="workcomment" column="workcomment" />
 	        <result property="abnorname" column="abnorname" />
+	        <result property="dunning" column="dunning" />
 	        <result property="dunningpic" column="dunningpic" />
 	        <result property="amountody" column="amountody" />
 	        <result property="invoicetody" column="invoicetody" />

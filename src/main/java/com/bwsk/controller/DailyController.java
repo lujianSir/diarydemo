@@ -112,8 +112,18 @@ public class DailyController {
 		for (int i = 0; i < list.size(); i++) {
 			List<Daily> dailys = list.get(i).getDailyList();
 			for (int j = 0; j < dailys.size(); j++) {
+				List<String> list1 = new ArrayList<String>();
 				Daily dai = dailys.get(j);
 				dai = updateDicsAndDvoideos(dai);
+				String dpic = dai.getDpic();
+				dpic = StringUtils.strip(dpic, "[]");
+				if (dpic != null && !dpic.equals("")) {
+					String[] dpics = dpic.split(",");
+					for (int m = 0; m < dpics.length; m++) {
+						list1.add(dpics[m].replace("\"", ""));
+					}
+					dai.setDpics(list1);
+				}
 			}
 		}
 		return Result.success(list);
