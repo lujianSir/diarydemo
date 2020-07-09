@@ -173,16 +173,16 @@
 			<if test="dvoideo != null">
 				dvoideo,
 			</if>
-			<if test="dtime != null">
+			<if test="dtime != null and dtime !=''">
 				dtime,
 			</if>
 			<if test="pid != null ">
 				pid,
 			</if>
-			<if test="creattime != null">
+			<if test="creattime != null and creattime !='' ">
 				creattime,
 			</if>
-			<if test="creatMouth != null">
+			<if test="creatMouth != null and creatMouth !=''">
 				creatMouth,
 			</if>
    		</trim>
@@ -241,16 +241,16 @@
 			<if test="dvoideo != null">
 				#{dvoideo},
 			</if>
-			<if test="dtime != null ">
+			<if test="dtime != null and dtime !=''">
 				#{dtime},
 			</if>
 			<if test="pid != null ">
 				#{pid},
 			</if>
-			<if test="creattime != null">
+			<if test="creattime != null and creattime !='' ">
 				#{creattime},
 			</if>
-			<if test="creatMouth != null">
+			<if test="creatMouth != null and creatMouth !=''">
 				#{creatMouth},
 			</if>
    		</trim>
@@ -314,16 +314,16 @@
 			<if test="dvoideo != null">
 				dvoideo=#{dvoideo},
 			</if>
-			<if test="dtime != null">
+			<if test="dtime != null and dtime !=''">
 				dtime=#{dtime},
 			</if>
 			<if test="pid != null">
 				pid=#{pid},
 			</if>
-			<if test="creattime != null">
+			<if test="creattime != null  and creattime !=''">
 				creattime=#{creattime},
 			</if>
-   			<if test="creatMouth != null">
+   			<if test="creatMouth != null and creatMouth !=''">
 				creatMouth=#{creatMouth},
 			</if>
    		</set>
